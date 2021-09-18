@@ -7,7 +7,7 @@
 * git clone https://github.com/elizeubarbosaabreu/VERIFICADOR-DE-CEP
 * Também pode ser feito o download de toda a pasta da maneira convencional
 
-## Dentro da pasta digite o comando para instalar as dependências:
+## Dentro da pasta baixada, digite o comando para instalar as dependências:
 * pip install -r requirements.txt ou
 * pip3 install -r requirements.txt (se estiver usando Linux ou Mac)
 
