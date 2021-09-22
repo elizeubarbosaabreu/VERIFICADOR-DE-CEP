@@ -9,21 +9,20 @@ import PySimpleGUI as sg
 
 # Autor Elizeu Barbosa Abreu: https://github.com/elizeubarbosaabreu
 # Este projeto foi baseado em um projeto que roda via terminal https://dev.to/mph7/como-consumir-uma-api-em-python-ffk
+# Uso da API https://viacep.com.br
 
 sg.theme('Reddit')
 
 layout = [[sg.Stretch(), sg.Text('VALIDA CEP APP', font=('Arial 20'), text_color='red'), sg.Stretch()],
-          [sg.Text('''Este App verifica se um determinado CEP é válido,
+          [sg.Text('''Este App verifica se um determinado CEP \u00e9 v\u00e1lido,
 retornando o nome do logradouro, bairro, cidade,
-UF, caso disponíveis...''', font=('Arial 12'), text_color='blue')],
+UF, caso dispon\u00edveis...''', font=('Arial 12'), text_color='blue')],
           [sg.Text(
               'Digite um CEP', font=('Arial 12'), text_color='blue'), sg.Input(
                   key='-INPUT-', size=(15, 1)), sg.Stretch(), sg.Button(
-                      'Consultar')],
-          [sg.Stretch(), sg.Text(
-                  'Desenvolvido por @elizeu.barbosa.abreu', font=('Arial 10'), text_color='purple'), sg.Stretch()]
-          
+                      'Consultar')]          
     ]
+
 window = sg.Window('VALIDA CEP APP', layout, resizable=True)
 
 while True:
@@ -34,8 +33,8 @@ while True:
     cep = values['-INPUT-']
             
     if len(cep) != 8:
-        sg.Popup('ERRO!!', '''Quantidade de dígitos inválida ou caracteres inválidos.
-Use apenas números sem pontos ou tracinhos. Ex.: 76916000''', font=('Arial 12'), text_color='red')
+        sg.Popup('ERRO!!', '''Quantidade de d\u00edgitos inv\u00e1lida.
+Use apenas n\u00fameros sem pontos ou tracinhos. Ex.: 76916000''', font=('Arial 12'), text_color='red')
         continue
         
     request = requests.get(f'https://viacep.com.br/ws/{cep}/json/')
@@ -76,8 +75,7 @@ fonte: https://viacep.com.br
 ''', font=('Arial 12'), text_color='blue')
     else:
         sg.Popup(
-            'CEP NÃO LOCALIZADO!!!', f'{cep} não localizado em nosso banco de dados!!!', font=('Arial 12'), text_color='red')
+            'CEP N\u00c3O LOCALIZADO!!!', f'{cep} n\u00e3o localizado em nosso banco de dados!!!', font=('Arial 12'), text_color='red')
     
 
 window.close()
-
